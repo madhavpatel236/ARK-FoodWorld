@@ -1,0 +1,1 @@
+## add the pre render screen at the Home component
