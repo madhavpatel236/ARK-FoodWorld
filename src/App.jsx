@@ -1,15 +1,28 @@
-import { useState } from 'react'
 import './App.css'
-import {Header, Home} from './components/index'
-// import {Outlet} from 'react-router-dom'
+import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom'
 
 function App() {
 
+  const router = createBrowserRouter([
+    {
+      path: '/',
+      element: <Root />
+    },
+    {
+      path: '/about',
+      element: <About />
+    },
+    {
+      path: '/home',
+      element: <Root />
+    },
+  ])
+
   return (
     <div>
-     {/* <Header />
-     <Home /> */}
-     {/* <Outlet /> */}
+      <RouterProvider router={router} >
+        <Root />
+      </RouterProvider>
     </div>
   )
 }
