@@ -4,6 +4,7 @@ import { CDN_URL } from '../../utils/constance'
 
 function Card({ resData }) {
 
+    console.log(resData)
     return (
         <div className='flex-col w-64 h-auto mt-6 mr-5 mb-4 flex-wrap rounded-2xl hover:size-72 hover:ease-in-out hover:duration-1000'>
             <div className='flex justify-center pb-2'>
@@ -15,7 +16,7 @@ function Card({ resData }) {
                 <h4 className='flex text-gray-700 font-medium ine-clamp-1'>{resData.areaName}</h4> <br />
                 <h4 className='flex ine-clamp-1 text-gray-700 font-medium font-RobotoSlab '> {resData.costForTwo}</h4>
                 <h4 className='flex ine-clamp-1  text-gray-700 font-medium font-RobotoSlab  justify-between'> ⭐{resData.avgRating}
-                <div className='flex ine-clamp-1 '>  ⌛{resData.sla.slaString}</div>
+                {/* <div className='flex ine-clamp-1 '>  ⌛{resData.sla.slaString}</div> */}
                 </h4>
             </div>
         </div>

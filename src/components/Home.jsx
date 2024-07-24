@@ -3,38 +3,44 @@ import Card from './Card/Card'
 import Shimmer from './Shimmer/Shimmer'
 
 function Home() {
-  const [listOfRestaurant, setListOfRestaurant] = useState([])
-  const [filteredRestaurant, setFilteredRestaurant] = useState([])
-  const [searchedRest, setSearchedRest] = useState("")
+  const [listOfRestaurant, setlistOfRestaurant] = useState([]);
+  const [filteredRestaurant, setFilteredRestaurant] = useState([]);
+  const [searchText, setSearchText] = useState("");
 
+
+  console.log("body rendering", listOfRestaurant);
   useEffect(() => {
     fetchData();
-  },[])
+  }, []);
 
   const fetchData = async () => {
-    const fetchData = await fetch('https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.4707019&lng=70.05773&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING')
-    const response = await fetchData.json()
-    // console.log(response)
-    const data = await response?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    setListOfRestaurant(data)
-    setFilteredRestaurant(data)
-  }
+    const data = await fetch(
+      "https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.0759837&lng=72.8776559&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+    );
+    const json = await data.json();
+    console.log(
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+    setlistOfRestaurant(
+      // optional chaining:-
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+    setFilteredRestaurant(
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+  };
 
-  // TODO : pre redndering of the home page add the last 
-
-  // if (listOfRestaurant.length == 0) {
-  //   return <Shimmer />
-  // }
-
-  return (
+  return listOfRestaurant.length === 0 ? (
+    <Shimmer />
+  ) : (
     <div>
       <div className='flex flex-wrap'>
         <input
           className='border-2 border-black rounded-3xl mt-10 ml-16 mb-3 p-2 min-w-80 placeholder-black placeholder:text-gray-500' placeholder='Search for restaurants and food'
           type='text'
-          value={searchedRest}
+          value={searchText}
           onChange={(e) => {
-            setSearchedRest(e.target.value)
+            setsearchText(e.target.value)
           }}
         />
         <button
@@ -43,7 +49,7 @@ function Home() {
             // console.log(listOfRestaurant)
             const filteredRestaurant = listOfRestaurant.filter((rest) => (
               //  console.log(rest)
-              rest.info.name.toLowerCase().includes(searchedRest.toLowerCase())
+              rest.info.name.toLowerCase().includes(searchText.toLowerCase())
             ))
             // console.log(filterredRestaurant)
             setFilteredRestaurant(filteredRestaurant)
@@ -65,11 +71,62 @@ function Home() {
       <div className='flex flex-wrap justify-center' >
         {console.log(filteredRestaurant)}
         {filteredRestaurant.map((restaurant) => (
-           <Card key={restaurant.info.id} resData={restaurant?.info} />
+          <Card key={restaurant.info.id} resData={restaurant?.info} />
         ))}
       </div>
     </div>
-  )
+  );
 }
 
 export default Home
+
+
+
+
+{/* <div className="body">
+      <div className="cont-bn">
+        <div className="Search">
+          <input
+            className="search-box"
+            data-testid="search-input"
+            placeholder="Search your Restaurant..."
+            type="text"
+            value={searchText}
+            onChange={(e) => {
+              setSearchText(e.target.value);
+            }}
+          ></input>
+          <button
+            className="btn"
+            onClick={() => {
+              // filter the restaurant cards & update the UI
+              const filteredRestaurant = listOfRestaurant.filter((res) => {
+                res.info.name.toLowerCase().includes(searchText.toLowerCase());
+              });
+              setFilteredRestaurant(filteredRestaurant);
+              // search Text
+              console.log(searchText);
+            }}
+          >
+            Search
+          </button>
+        </div>
+        <button
+          className="filter-btn"
+          onClick={() => {
+            const filteredData = listOfRestaurant.filter(
+              (res) => res.info.avgRating > 4
+            );
+            setlistOfRestaurant(filteredData);
+            console.log(filteredData);
+          }}
+        >
+          Top Rated Restaurants
+        </button>          
+      </div>
+      <div className="res-container">
+        {filteredRestaurant.map((restaurant) => (
+              <Card resData={restaurant?.info} />
+        ))}
+      </div>
+    </div> */}
