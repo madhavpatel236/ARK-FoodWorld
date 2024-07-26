@@ -1,17 +1,16 @@
 import React from 'react'
 import { Header, Home } from './components/index'
+import { Outlet } from 'react-router-dom'
 
-function root() {
-
-
+function Root() {
 
   return (
     <div>
       <Header />
-      <Home />
-      {/* <Outlet /> */}
+      <Outlet />
+      {/* <Home /> */}
     </div>
   )
 }
 
-export default root
+export default Root

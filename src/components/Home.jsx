@@ -1,34 +1,32 @@
 import React, { useEffect, useState } from 'react'
 import Card from './Card/Card'
 import Shimmer from './Shimmer/Shimmer'
+import {SWIGGY_HOME_API} from '../utils/constance'
+import { Link } from 'react-router-dom';
 
 function Home() {
   const [listOfRestaurant, setlistOfRestaurant] = useState([]);
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
   const [searchText, setSearchText] = useState("");
 
+  
+useEffect(() => {
+  fetchData();
+}, []);
 
-  console.log("body rendering", listOfRestaurant);
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
-    const data = await fetch(
-      "https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.0759837&lng=72.8776559&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    );
-    const json = await data.json();
-    console.log(
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
-    setlistOfRestaurant(
-      // optional chaining:-
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
-    setFilteredRestaurant(
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
-  };
+const fetchData = async () => {
+  const data = await fetch(
+    SWIGGY_HOME_API
+  );
+  const json = await data.json();
+  
+  setlistOfRestaurant(
+    json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+  );
+  setFilteredRestaurant(
+    json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+  );
+};
 
   return listOfRestaurant.length === 0 ? (
     <Shimmer />
@@ -40,7 +38,7 @@ function Home() {
           type='text'
           value={searchText}
           onChange={(e) => {
-            setsearchText(e.target.value)
+            setSearchText(e.target.value)
           }}
         />
         <button
@@ -62,16 +60,16 @@ function Home() {
             const filteredData = listOfRestaurant.filter(
               (res) => res.info.avgRating >= 4.5
             )
-            console.log(filteredData)
+            // console.log(filteredData)
             setFilteredRestaurant(filteredData)
           }}
         > Top Rated Resturent </button>
       </div>
       <h1 className='mt-8 ml-16 mb-3 font-medium text-3xl font-Ubuntu'>Restaurants with online food delivery in Jamnager</h1>
       <div className='flex flex-wrap justify-center' >
-        {console.log(filteredRestaurant)}
+        {/* {console.log(filteredRestaurant)} */}
         {filteredRestaurant.map((restaurant) => (
-          <Card key={restaurant.info.id} resData={restaurant?.info} />
+          <Link to={"rest-detail/"+ restaurant.info.id} key={restaurant.info.id}><Card  resData={restaurant?.info} /></Link>
         ))}
       </div>
     </div>

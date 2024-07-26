@@ -1,10 +1,10 @@
 import React from 'react'
 import logo from '../../img/logo.jpeg'
 import { CDN_URL } from '../../utils/constance'
+import { Link } from 'react-router-dom'
 
 function Card({ resData }) {
 
-    console.log(resData)
     return (
         <div className='flex-col w-64 h-auto mt-6 mr-5 mb-4 flex-wrap rounded-2xl hover:size-72 hover:ease-in-out hover:duration-1000'>
             <div className='flex justify-center pb-2'>
