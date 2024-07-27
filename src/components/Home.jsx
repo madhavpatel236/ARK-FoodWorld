@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Card from './Card/Card'
 import Shimmer from './Shimmer/Shimmer'
-import {SWIGGY_HOME_API} from '../utils/constance'
+import { SWIGGY_HOME_API } from '../utils/constance'
 import { Link } from 'react-router-dom';
 
 function Home() {
@@ -9,24 +9,22 @@ function Home() {
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
   const [searchText, setSearchText] = useState("");
 
-  
-useEffect(() => {
-  fetchData();
-}, []);
 
-const fetchData = async () => {
-  const data = await fetch(
-    SWIGGY_HOME_API
-  );
-  const json = await data.json();
-  
-  setlistOfRestaurant(
-    json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-  );
-  setFilteredRestaurant(
-    json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-  );
-};
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    const data = await fetch(SWIGGY_HOME_API);
+    const json = await data.json();
+
+    setlistOfRestaurant(
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+    setFilteredRestaurant(
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+  };
 
   return listOfRestaurant.length === 0 ? (
     <Shimmer />
@@ -46,10 +44,8 @@ const fetchData = async () => {
           onClick={() => {
             // console.log(listOfRestaurant)
             const filteredRestaurant = listOfRestaurant.filter((rest) => (
-              //  console.log(rest)
               rest.info.name.toLowerCase().includes(searchText.toLowerCase())
             ))
-            // console.log(filterredRestaurant)
             setFilteredRestaurant(filteredRestaurant)
           }}
 
@@ -60,16 +56,19 @@ const fetchData = async () => {
             const filteredData = listOfRestaurant.filter(
               (res) => res.info.avgRating >= 4.5
             )
-            // console.log(filteredData)
             setFilteredRestaurant(filteredData)
           }}
         > Top Rated Resturent </button>
       </div>
       <h1 className='mt-8 ml-16 mb-3 font-medium text-3xl font-Ubuntu'>Restaurants with online food delivery in Jamnager</h1>
       <div className='flex flex-wrap justify-center' >
-        {/* {console.log(filteredRestaurant)} */}
         {filteredRestaurant.map((restaurant) => (
-          <Link to={"rest-detail/"+ restaurant.info.id} key={restaurant.info.id}><Card  resData={restaurant?.info} /></Link>
+          <Link
+            to={"rest-detail/" + restaurant.info.id}
+            key={restaurant.info.id}
+          >
+            <Card resData={restaurant?.info} />
+            </Link>
         ))}
       </div>
     </div>

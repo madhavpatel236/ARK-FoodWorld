@@ -8,13 +8,13 @@ function Header() {
                 <img className='w-22 h-20' src={logo} alt='logo' />
             </div>
             <div className='flex mr-16 items-center justify-between w-1/2'>
-                <ul> <Link to='/'> Home </Link> </ul>
-                <ul>Manu</ul>
-                <ul> <Link to='/about'> About </Link> </ul>
-                <ul>Help</ul>
-                <ul>Cart🛒</ul>
+                <div> <Link to='/'> Home </Link> </div>
+                <div>Manu</div>
+                <div> <Link to='/about'> About </Link> </div>
+                <div>Help</div>
+                <div>Cart🛒</div>
                 {/* <ul>profile</ul> */}
-                <ul>login</ul>
+                <div>login</div>
             </div>
         </div>
     )
