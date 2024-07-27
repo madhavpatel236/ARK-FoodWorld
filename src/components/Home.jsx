@@ -75,17 +75,15 @@ function Home() {
             to={"rest-detail/" + restaurant.info.id}
             key={restaurant.info.id}
           >
-<<<<<<< HEAD
+
             {
               restaurant?.info?.aggregatedDiscountInfoV3 ? // check a condition that if the offer exist then use a Higher order component other wise use the normal card function
                 (<ResaurentCardWithOffer resData={restaurant?.info} offer={restaurant?.info?.aggregatedDiscountInfoV3.header + " " + restaurant?.info?.aggregatedDiscountInfoV3.subHeader} />) :
                 (<Card resData={restaurant?.info} />)
             }
           </Link>
-=======
             <Card resData={restaurant?.info} />
             </Link>
->>>>>>> 99ae78b692036f513a16ca206fa265f874ad99e1
         ))}
       </div>
     </div>
