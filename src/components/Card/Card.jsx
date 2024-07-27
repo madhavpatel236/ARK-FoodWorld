@@ -16,11 +16,27 @@ function Card({ resData }) {
                 <h4 className='flex text-gray-700 font-medium ine-clamp-1'>{resData.areaName}</h4> <br />
                 <h4 className='flex ine-clamp-1 text-gray-700 font-medium font-RobotoSlab '> {resData.costForTwo}</h4>
                 <h4 className='flex ine-clamp-1  text-gray-700 font-medium font-RobotoSlab  justify-between'> ⭐{resData.avgRating}
-                {/* <div className='flex ine-clamp-1 '>  ⌛{resData.sla.slaString}</div> */}
+                    {/* <div className='flex ine-clamp-1 '>  ⌛{resData.sla.slaString}</div> */}
                 </h4>
             </div>
         </div>
     )
+}
+
+// Higher order component : Higher Order Component is normal a javascript function which is return a another funcrtion and this function return a JSX.
+// normal function > reaturn another function > retunt jsx
+// in our case we have a card but some of they have a discout so for that we make a component which is <Card /> so we can make a higher order component which is with the discount offer text in the image
+
+export const withOfferCard = (Card) => {
+    return (props) => {
+        const {offer} = props
+        return(
+            <div className=' font-Ubuntu text-lg'>
+                <h1 className="absolute w-60 h-10 p-1 ml-2 mt-44 bg-transparent text-white bg-red-700 rounded-b-3xl font-Ubuntu font-bold text-center "> {offer} </h1>
+                <Card {...props}  />
+            </div>
+        )
+    }
 }
 
 export default Card
