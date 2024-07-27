@@ -9,13 +9,19 @@ function Home() {
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
   const [searchText, setSearchText] = useState("");
 
+<<<<<<< HEAD
   const ResaurentCardWithOffer = withOfferCard(Card) // Higher order component
+=======
+>>>>>>> 99ae78b692036f513a16ca206fa265f874ad99e1
 
   useEffect(() => {
     fetchData();
   }, []);
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 99ae78b692036f513a16ca206fa265f874ad99e1
   const fetchData = async () => {
     const data = await fetch(SWIGGY_HOME_API);
     const json = await data.json();
@@ -69,12 +75,17 @@ function Home() {
             to={"rest-detail/" + restaurant.info.id}
             key={restaurant.info.id}
           >
+<<<<<<< HEAD
             {
               restaurant?.info?.aggregatedDiscountInfoV3 ? // check a condition that if the offer exist then use a Higher order component other wise use the normal card function
                 (<ResaurentCardWithOffer resData={restaurant?.info} offer={restaurant?.info?.aggregatedDiscountInfoV3.header + " " + restaurant?.info?.aggregatedDiscountInfoV3.subHeader} />) :
                 (<Card resData={restaurant?.info} />)
             }
           </Link>
+=======
+            <Card resData={restaurant?.info} />
+            </Link>
+>>>>>>> 99ae78b692036f513a16ca206fa265f874ad99e1
         ))}
       </div>
     </div>
