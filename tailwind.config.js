@@ -11,11 +11,20 @@ export default {
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
         oswald: ["Oswald", "sans-serif"],
-        Ubuntu: ["Ubuntu" , "sans-serif"],
-        RobotoSlab: ["Roboto Slab" , "serif" ],
-        Barlow: ["Barlow" ,"sans-serif" ]
+        Ubuntu: ["Ubuntu", "sans-serif"],
+        RobotoSlab: ["Roboto Slab", "serif"],
+        Barlow: ["Barlow", "sans-serif"]
+      },
+      scrollbar: {
+        'webkit-none': {
+          '&::-webkit-scrollbar': {
+            display: 'none',
+          },
+        },
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar'),
+  ],
 }

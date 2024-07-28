@@ -6,9 +6,9 @@ import { Link } from 'react-router-dom'
 function Card({ resData }) {
 
     return (
-        <div className='flex-col w-64 h-auto mt-6 mr-5 mb-4 flex-wrap rounded-2xl hover:size-72 hover:ease-in-out hover:duration-1000'>
-            <div className='flex justify-center pb-2'>
-                <img className=' shadow-slate-700 shadow-xl h-52 w-60 rounded-3xl ' src={CDN_URL + resData.cloudinaryImageId} alt='Res img' />
+        <div className='flex-col w-64 h-auto mt-6 mr-5 mb-4 flex-wrap rounded-3xl   transform hover:scale-105 duration-300 hover:shadow-2xl hover:shadow-black transition'>
+            <div className='flex justify-center p-2 '>
+                <img className=' shadow-slate-700  shadow-xl h-52 w-60 rounded-3xl ' src={CDN_URL + resData.cloudinaryImageId} alt='Res img' />
             </div>
             <div className='flex-col p-3 font-Ubuntu '>
                 <h1 className='line-clamp-1 font-bold text-base'>{resData.name}</h1>
@@ -32,7 +32,7 @@ export const withOfferCard = (Card) => {
         const {offer} = props
         return(
             <div className=' font-Ubuntu text-lg'>
-                <h1 className="absolute w-60 h-10 p-1 ml-2 mt-44 bg-transparent text-white bg-red-700 rounded-b-3xl font-Ubuntu font-bold text-center "> {offer} </h1>
+                <h1 className="absolute w-60 h-10 p-1 ml-2 mt-44 bg-transparent text-white bg-red-800 rounded-b-3xl font-Ubuntu font-bold text-center "> {offer} </h1>
                 <Card {...props}  />
             </div>
         )
