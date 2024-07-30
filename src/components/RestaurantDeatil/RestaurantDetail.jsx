@@ -12,8 +12,9 @@ function RestaurantDetail() {
   const [restaurantDetails, setRestaurantDetails] = useState([])
   const [offerCard, setOfferCard] = useState([])
   const [homeApi, setHomeApi] = useState([])
+  const [showIndex, SetShowIndex] = useState(0)
 
-  const { resId } = useParams() // call useParams and get value of restaurant id using object destructuring
+  const { resId } = useParams() // call useParams() and get value of restaurant id using object destructuring
 
   useEffect(() => {
     fetchManu()
@@ -61,7 +62,7 @@ function RestaurantDetail() {
           <h1 className='ml-4 mt-3'>
             {restaurantDetails[2]?.card?.card?.info?.availability?.opened === true ? <div className='p-2 rounded-lg bg-green-500'> Open </div> : <div p-2 rounded-lg bg-red-500> Closed </div>}
           </h1>
-          <h1> 
+          <h1>
             {restaurantDetails[2]?.card?.card?.info?.availability?.opened === true && <div className='flex mr-8 mt-4'> <img className=' w-7 h-7' src={time} alt='time' /> <div> {restaurantDetails[2]?.card?.card?.info?.sla?.slaString} </div> </div>}
           </h1>
         </div>
@@ -77,14 +78,19 @@ function RestaurantDetail() {
         </div>
       </div>
 
-      {/* items ooption component */}
+      {/* items option component */}
       <div className='w-auto mt-14 '>
-        {manuItems.map(
-          (list) => <ItemList key={list?.card?.card?.title} options={list?.card?.card} />
+        {manuItems.map((list, index) =>
+          // This is an example of a Controlled Component :  A component is controlled when it's managed by its parent using props.
+          <ItemList
+            key={list?.card?.card?.title}
+            options={list?.card?.card}
+            showItems={index === showIndex ? true : false}
+            SetShowIndex={() => SetShowIndex(index)}
+
+          />
         )}
       </div>
-
-
     </div>
 
   )

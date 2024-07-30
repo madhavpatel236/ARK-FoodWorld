@@ -1,27 +1,25 @@
 import React, { useState } from 'react'
 import Items from './Items'
 
-function ItemList({ options }) {
-    // console.log('options', options)
-    const [showDetails, SetShowDetails] = useState(false)
+function ItemList({ options, showItems, setShowItems, SetShowIndex }) {
 
-    const handleClick = () => {
-        SetShowDetails(!showDetails)
+    const handleSubmit = () => {
+        SetShowIndex()
     }
-
     return (
         <>
             <div className='bg-gray-100 rounded-2xl mb-3 mt-3 font-Ubuntu text-xl'>
                 {/* Accordian Header  */}
                 <div className=' flex justify-between p-4 font-bold cursor-pointer'
-                    onClick={handleClick}>
+                    onClick={handleSubmit}
+                    >
                     <span> {options?.title} ({options?.itemCards?.length}) </span>
                     <span> ⬇️ </span>
                 </div>
 
                 {/* Accordian Body */}
-                <div className='p-1 text-sm '>
-                    {showDetails && <Items  data={options?.itemCards} />}
+                <div className='p-1 text-sm'>
+                    {showItems && <Items data={options?.itemCards} />}
                 </div>
 
             </div>
