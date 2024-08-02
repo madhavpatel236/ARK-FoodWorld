@@ -28,11 +28,11 @@ function Home() {
     );
   };
 
-  return listOfRestaurant.length === 0 ? (
+  return listOfRestaurant.length == 0 ? (
     <Shimmer />
   ) : (
     <div>
-      <div className='flex flex-wrap'>
+      <div className='flex pt-20 flex-wrap'>
         <input
           className='border-2 border-black rounded-3xl mt-10 ml-16 mb-3 p-2 min-w-80 placeholder-black placeholder:text-gray-500' placeholder='Search for restaurants and food'
           type='text'
@@ -56,7 +56,7 @@ function Home() {
           className='border-2 border-red-500 text-red-500 rounded-3xl mt-10 ml-20 mb-3 p-2 min-w-52'
           onClick={() => {
             const filteredData = listOfRestaurant.filter(
-              (res) => res.info.avgRating > 4.0
+              (res) => res.info.avgRating > 4.5
             )
             setFilteredRestaurant(filteredData)
           }}
@@ -82,4 +82,3 @@ function Home() {
 }
 
 export default Home
-

@@ -2,6 +2,8 @@ import React from 'react'
 import { CDN_URL } from '../../utils/constance'
 import { useDispatch } from 'react-redux'
 import { addItems } from '../../utils/Slices/cartSlice'
+import veg from '../../img/Veg.svg'
+import nonVeg from '../../img/nonVeg.png'
 
 function Items({ data }) {
 
@@ -9,7 +11,7 @@ function Items({ data }) {
 
     const handleCart = (food) => {
         dispatch(addItems(food))
-        // console.log(food)
+        console.log('food', food)
     }
 
     return (
@@ -17,7 +19,8 @@ function Items({ data }) {
             {data.map((d) => (
                 <div key={d?.card?.info?.name} className='flex mb-5 pb-5 pl-3 pr-3 w-auto h-auto pt-5  border-t-2 '>
                     <div className='w-9/12 m-2 flex-col'>
-                        {d?.card.info.itemAttribute.vegClassifier === 'VEG' ? <span className=' w-auto h-auto p-1 rounded-sm bg-green-500'> VEG </span> : <span className='w-auto h-auto p-1 rounded-sm bg-red-500 '> NON-VEG </span>}
+                        {d?.card.info.itemAttribute.vegClassifier === 'VEG' ? <img src={veg} className='w-14 h-8 -ml-3' /> : <img src={nonVeg} className='w-9 h-9  ' /> }
+                        {/* {d?.card.info.itemAttribute.vegClassifier === 'VEG' ? <span className=' w-auto h-auto p-1 rounded-sm bg-green-500'> VEG </span> : <span className='w-auto h-auto p-1 rounded-sm bg-red-500 '> NON-VEG </span>} */}
                         <div className='text-base font-bold pb-2 mt-2'>
                             <span> {d?.card?.info?.name} </span>
                             <span> - ₹{d?.card?.info?.price / 100 || d?.card?.info?.defaultPrice / 100} </span>

@@ -4,6 +4,7 @@ import Root from './Root'
 import './index.css'
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom'
 import { About, Home, RestaurantDetail } from './components'
+import Cart from './components/Cart/Cart'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -11,6 +12,7 @@ const router = createBrowserRouter(
       <Route path='/' element={<Home />} />
       <Route path='about' element={<About />} />
       <Route path='rest-detail/:resId' element={<RestaurantDetail />} />
+      <Route path='cart' element={<Cart />} />
     </Route>
   )
 )

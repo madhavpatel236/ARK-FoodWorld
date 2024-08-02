@@ -2,7 +2,7 @@ import React from 'react'
 
 function Shimmer() {
     return (
-        <div className='[background-size:300%] animate-[shimmer_1s_infinite_linear] bg-[linear-gradient(-45deg,_gray-200_40%,_gray-300_50%,_gray-200_60%)]'>
+        <div className=' pt-20 [background-size:300%] animate-[shimmer_1s_infinite_linear] bg-[linear-gradient(-45deg,_gray-200_40%,_gray-300_50%,_gray-200_60%)]'>
             <div className='flex flex-wrap animate-pulse '>
                 <input
                     className='border-2  border-gray-200 bg-gray-100 rounded-3xl mt-10 ml-16 mb-3 p-2 min-w-80 '

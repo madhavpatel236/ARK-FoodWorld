@@ -46,7 +46,7 @@ function RestaurantDetail() {
   return restaurantDetails.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className='flex-col mt-14 ml-48  w-8/12 '>
+    <div className='flex-col pt-32 ml-48  w-8/12 '>
 
       {/*  upper main restaurant card comonent */}
       <div className='flex-col w-auto h-auto shadow-lg shadow-black border rounded-3xl font-Ubuntu font-medium text-base  transform hover:scale-105 transition duration-300 '>
