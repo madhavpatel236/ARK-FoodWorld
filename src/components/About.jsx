@@ -11,7 +11,7 @@ function About() {
     <div className='pt-20'>
       <div>
         about
-        {handleSubmit}
+        {/* {handleSubmit} */}
       </div>
     </div>
   )
