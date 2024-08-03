@@ -194,10 +194,7 @@ function Shimmer() {
                         <h4 className='flex w-52 h-5 ml-3 rounded-xl  justify-between  border-2 border-gray-200 bg-gray-200 '></h4>
                     </div>
                 </div>
-                
-                
-
-
+         
             </div>
         </div>
     )
