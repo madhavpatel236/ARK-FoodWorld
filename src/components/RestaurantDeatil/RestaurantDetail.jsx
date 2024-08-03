@@ -24,7 +24,7 @@ function RestaurantDetail() {
   const SWIGGY_HOME_API_FETCH = async () => {
     const data = await fetch(SWIGGY_HOME_API)
     const json = await data.json();
-    const detail = await json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    const detail = await json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     setHomeApi(detail)
   }
 
@@ -37,11 +37,25 @@ function RestaurantDetail() {
     const offer = await detail[3]?.card?.card?.gridElements?.infoWithStyle?.offers
     setOfferCard(offer)
   }
+  // console.log('restaurantDetails', restaurantDetails)
+  console.log(restaurantDetails[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards)
 
-  const manuItems = restaurantDetails[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter(
+  const manu =
+
+    restaurantDetails[0]?.groupedCard?.cardGroupMap?.REGULAR?.cards ||
+    restaurantDetails[1]?.groupedCard?.cardGroupMap?.REGULAR?.cards ||
+    restaurantDetails[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards ||
+    restaurantDetails[3]?.groupedCard?.cardGroupMap?.REGULAR?.cards ||
+    restaurantDetails[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards ||
+    restaurantDetails[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards
+
+  // console.log('manu', manu)
+
+  const manuItems = manu?.filter(
     (c) => c?.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
   );
-  // console.log('restaurantDetails', restaurantDetails[2]?.card?.card?.info?.availability?.opened  )
+
+  // console.log('manuItems', manuItems)
 
   return restaurantDetails.length === 0 ? (
     <Shimmer />
@@ -72,6 +86,7 @@ function RestaurantDetail() {
       <div className='flex-col w-auto '>
         <h1 className=' mt-10 mb-4 text-2xl font-bold font-Ubuntu '> Deals For You</h1>
         <div className='flex gap-7 overflow-x-scroll scrollbar-none '>
+
           {offerCard.map((items) => {
             return <OfferCard key={items.info.offerIds[0]} offer={items?.info} />
           })}
@@ -80,14 +95,13 @@ function RestaurantDetail() {
 
       {/* items option component */}
       <div className='w-auto mt-14 '>
-        {manuItems.map((list, index) =>
+        {manuItems.map((list, index) => 
           // This is an example of a Controlled Component :  A component is controlled when it's managed by its parent using props.
           <ItemList
             key={list?.card?.card?.title}
             options={list?.card?.card}
             showItems={index === showIndex ? true : false}
             SetShowIndex={() => SetShowIndex(index)}
-
           />
         )}
       </div>
