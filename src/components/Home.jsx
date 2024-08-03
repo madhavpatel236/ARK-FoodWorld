@@ -20,17 +20,19 @@ function Home() {
     const data = await fetch(SWIGGY_HOME_API);
     const json = await data.json();
 
-    setlistOfRestaurant(
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
-    setFilteredRestaurant(
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
-  };
+    const rest =
+    json?.data?.cards[0]?.card?.card?.gridElements?.infoWithStyle?.restaurants ||
+    json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants ||
+    json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants ||
+    json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants ||
+    json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants ||
+    json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants  
 
-  return listOfRestaurant.length == 0 ? (
-    <Shimmer />
-  ) : (
+    setlistOfRestaurant(rest );
+    setFilteredRestaurant(rest)
+  }
+
+  return  (
     <div>
       <div className='flex pt-20 flex-wrap'>
         <input
@@ -66,7 +68,7 @@ function Home() {
       <h1 className='mt-8 ml-16 mb-3 font-medium text-3xl font-Ubuntu'>Restaurants with online food delivery in Jamnager</h1>
       
       <div className='flex flex-wrap justify-center' >
-        {filteredRestaurant.map((restaurant) => (
+        { filteredRestaurant.map((restaurant) => (
           < Link to={"rest-detail/" + restaurant.info.id} key={restaurant.info.id} >
             {
               restaurant?.info?.aggregatedDiscountInfoV3 ? // check a condition that if the offer exist then use a Higher order component other wise use the normal card function
@@ -79,6 +81,6 @@ function Home() {
       </div>
     </div>
   );
-}
 
+}
 export default Home
