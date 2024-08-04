@@ -34,9 +34,9 @@ function Home() {
 
   return  (
     <div>
-      <div className='flex pt-20 flex-wrap'>
+      <div className='flex pt-20   flex-wrap '>
         <input
-          className='border-2 border-black rounded-3xl mt-10 ml-16 mb-3 p-2 min-w-80 placeholder-black placeholder:text-gray-500' placeholder='Search for restaurants and food'
+          className='border-2 border-red-500 rounded-3xl mt-10 ml-16 mb-3 p-2 min-w-80 placeholder-black placeholder:text-gray-500' placeholder='Search for restaurants and food'
           type='text'
           value={searchText}
           onChange={(e) => {
@@ -44,7 +44,7 @@ function Home() {
           }}
         />
         <button
-          className='border-2 bg-red-600 text-white rounded-3xl mt-10 ml-6 mr-72 mb-3 min-w-32'
+          className='border-2 bg-red-500 text-white rounded-3xl mt-10 ml-6 mr-72 mb-3 min-w-32'
           onClick={() => {
             // console.log(listOfRestaurant)
             const filteredRestaurant = listOfRestaurant.filter((rest) => (
