@@ -16,12 +16,11 @@ function CartCard({ data }) {
 
     return (
         <div className='flex mb-4 h-40 w-8/12 border border-gray-3 rounded-lg  shadow-md'>
-            <img className='flex w-36 object-cover shadow-black z-10 m-2 rounded-md' src={CDN_URL + data?.imageId} alt="Food img" />
-
+           {data?.imageId &&  <img className='flex w-36 object-cover shadow-black z-10 m-2 rounded-md' src={CDN_URL + data?.imageId } alt=' '  /> }
             <div className=' static flex-col flex  justify-around p-2 font-Ubuntu '>
                 <h2 className='flex-col line-clamp-2 font-extrabold text-lg '> {data?.name} </h2>
                 <h2 className='flex-col line-clamp-2 text-gray-700 font-medium '> {data?.description || data?.category} </h2>
-                <h2 className='flex-col font-extrabold text-lg'> ₹ {data?.price / 100} </h2>
+                <h2 className='flex-col font-extrabold text-lg'> ₹ {data?.price / 100 || data?.defaultPrice / 100} </h2>
             </div>
 
             <div className='flex flex-col text-center justify-center mr-5 ml-auto'>

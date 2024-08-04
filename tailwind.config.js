@@ -22,6 +22,9 @@ export default {
           },
         },
       },
+      backgroundImage: {
+        'about-bg': "url(./src/img/bg-4.jpg)",
+      },
     },
   },
   plugins: [
