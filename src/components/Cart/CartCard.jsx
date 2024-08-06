@@ -5,7 +5,7 @@ import appStore from '../../utils/appStore'
 import { removeItems } from '../../utils/Slices/cartSlice'
 
 function CartCard({ data }) {
-    console.log('data', data)
+    // console.log('data', data)
     
     const dispatch =useDispatch(appStore)
 
@@ -15,7 +15,7 @@ function CartCard({ data }) {
     )
 
     return (
-        <div className='flex mb-4 h-40 w-8/12 border border-gray-3 rounded-lg  shadow-md'>
+        <div className='flex mb-4 h-40 w-10/12  border border-gray-3 rounded-lg  shadow-md'>
            {data?.imageId &&  <img className='flex w-36 object-cover shadow-black z-10 m-2 rounded-md' src={CDN_URL + data?.imageId } alt=' '  /> }
             <div className=' static flex-col flex  justify-around p-2 font-Ubuntu '>
                 <h2 className='flex-col line-clamp-2 font-extrabold text-lg '> {data?.name} </h2>
@@ -25,7 +25,7 @@ function CartCard({ data }) {
 
             <div className='flex flex-col text-center justify-center mr-5 ml-auto'>
                 <button
-                 className=' pl-3 pr-3 text-red-600 hover:border-red-600 hover:border rounded-xl'
+                 className=' p-1 text-red-600 hover:scale-110 rounded-xl'
                  onClick={() => handleRemove(data?.id)}
                  > Remove </button>
             </div>

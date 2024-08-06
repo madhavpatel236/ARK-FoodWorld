@@ -13,12 +13,9 @@ function Header() {
 
     return (
         <div className='fixed w-full z-20 -mt-1 -mr-1 h-24 flex justify-between bg-white  border-2 '>
-            <div>
-                <img className='w-22 h-16' src={logo} alt='logo' />
-            </div>
+            <div> <img className='w-22 h-16' src={logo} alt='logo' /> </div>
             <div className='flex ml-24 items-center justify-between w-2/4 text-red-500 font-Barlow font-medium  text-xl'>
                 <div> <Link to='/'> Home </Link> </div>
-                {/* <div>Manu</div> */}
                 <div> <Link to='/about'> About </Link> </div>
                 <div>Help</div>
                 <div> <Link to='/cart'> 🛒 ({cartItems.length} items) </Link> </div>

@@ -1,12 +1,13 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux';
 import CartCard from './CartCard';
+import Price from './Price';
 
 
 function Cart() {
+
   const cartItems = useSelector((store) => store.cart.items);
-  // console.log('cartItems', cartItems)
 
   return (
     <div>
@@ -15,14 +16,18 @@ function Cart() {
       </div>
 
       <div className='flex font-Ubuntu'>
-        <div className='ml-28  flex flex-wrap '>
-          {cartItems && cartItems.map((res) => {
-            return <CartCard key={res?.card?.info?.id} data={res?.card?.info} />
+
+        <div className=' w-8/12 flex flex-wrap justify-around '>
+          {cartItems && cartItems.map((res, index) => {
+            return <CartCard key={index} data={res?.card?.info} />
           })}
         </div>
 
-        <div className='flex-col w-5/12'> </div>
+        <div className='flex-col mb-4 mr-5 p-4 h-5/6  w-4/12 font-Ubuntu rounded-xl '>
+          <h1 className='flex'> <Price /> </h1>
+        </div>
       </div>
+
 
     </div>
   )

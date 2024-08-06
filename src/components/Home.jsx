@@ -32,11 +32,12 @@ function Home() {
     setFilteredRestaurant(rest)
   }
 
-  return  (
+  return listOfRestaurant.length === 0 ? <Shimmer /> 
+  :(
     <div>
       <div className='flex pt-20   flex-wrap '>
         <input
-          className='border-2 border-red-500 rounded-3xl mt-10 ml-16 mb-3 p-2 min-w-80 placeholder-black placeholder:text-gray-500' placeholder='Search for restaurants and food'
+          className='border-2 border-red-500 rounded-3xl mt-10 ml-16 mb-3 p-2 min-w-80 placeholder-black text-center  placeholder:text-gray-500' placeholder='Search for restaurants and food'
           type='text'
           value={searchText}
           onChange={(e) => {
@@ -84,3 +85,7 @@ function Home() {
 
 }
 export default Home
+
+
+
+// make a saperate component of the filtered list of rest and at the time of onclick event we call that component.

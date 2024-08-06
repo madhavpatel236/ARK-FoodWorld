@@ -11,7 +11,7 @@ function Items({ data }) {
 
     const handleCart = (food) => {
         dispatch(addItems(food))
-        console.log('food', food)
+        // console.log('food', food)
     }
 
     return (

@@ -32,13 +32,13 @@ function RestaurantDetail() {
     const data = await fetch(SWIGGY_REST_DETAILS_API + resId + "&catalog_qa=undefined&submitAction=ENTER")
     const json = await data.json();
     const detail = await json?.data?.cards
-    // console.log('detail', detail)
+    console.log('detail', detail)
     setRestaurantDetails(detail)
     const offer = await detail[3]?.card?.card?.gridElements?.infoWithStyle?.offers
     setOfferCard(offer)
   }
   // console.log('restaurantDetails', restaurantDetails)
-  console.log(restaurantDetails[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards)
+  // console.log(restaurantDetails[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards)
 
   const manu =
 
