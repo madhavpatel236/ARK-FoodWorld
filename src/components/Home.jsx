@@ -17,7 +17,9 @@ function Home() {
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch(SWIGGY_HOME_API);
+    const data = await fetch(SWIGGY_HOME_API , {
+      mode: 'no-cors' 
+    } );
     const json = await data.json();
 
     const rest =

@@ -22,14 +22,18 @@ function RestaurantDetail() {
   }, [])
 
   const SWIGGY_HOME_API_FETCH = async () => {
-    const data = await fetch(SWIGGY_HOME_API)
+    const data = await fetch(SWIGGY_HOME_API , {
+      mode: 'no-cors' 
+    })
     const json = await data.json();
     const detail = await json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     setHomeApi(detail)
   }
 
   const fetchManu = async () => {
-    const data = await fetch(SWIGGY_REST_DETAILS_API + resId + "&catalog_qa=undefined&submitAction=ENTER")
+    const data = await fetch(SWIGGY_REST_DETAILS_API + resId + "&catalog_qa=undefined&submitAction=ENTER", {
+      mode: 'no-cors' 
+    })
     const json = await data.json();
     const detail = await json?.data?.cards
     console.log('detail', detail)
