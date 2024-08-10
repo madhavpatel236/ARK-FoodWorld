@@ -12,7 +12,8 @@ function RestaurantDetail() {
   const [restaurantDetails, setRestaurantDetails] = useState([])
   const [offerCard, setOfferCard] = useState([])
   const [homeApi, setHomeApi] = useState([])
-  const [showIndex, SetShowIndex] = useState(0)
+  const [showIndex, SetShowIndex] = useState()
+  const [enable, setEnable] = useState(false)
 
   const { resId } = useParams() // call useParams() and get value of restaurant id using object destructuring
 
@@ -64,13 +65,13 @@ function RestaurantDetail() {
 
       {/*  upper main restaurant card comonent */}
       <div className='flex-col w-auto h-auto shadow-lg shadow-black border rounded-3xl font-Ubuntu font-medium text-base  transform hover:scale-105 transition duration-300 '>
-        <div className='flex justify-between'>
+        <div classSetShowIndexName='flex justify-between'>
           <div className='flex-col '>
             <h1 className='flex mt-3 ml-5 font-Ubuntu font-bold text-3xl'>{restaurantDetails[2]?.card?.card?.info?.name}</h1>
             <h1 className='flex ml-5 font-normal  '> {restaurantDetails[2]?.card?.card?.info?.cuisines.join(", ")}  </h1>
             <h1 className='flex ml-5 font-normal  '> {restaurantDetails[2]?.card?.card?.info?.areaName + ", " + restaurantDetails[2]?.card?.card?.info?.city}  </h1>
           </div>
-          <h1 className='flex mt-4 pr-7 text-xl '>*️⃣ {restaurantDetails[2]?.card?.card?.info?.avgRating} ({restaurantDetails[2]?.card?.card?.info?.totalRatingsString})</h1>
+          <h1 className='flex mt-4 ml-5 text-xl '>*️⃣ {restaurantDetails[2]?.card?.card?.info?.avgRating} ({restaurantDetails[2]?.card?.card?.info?.totalRatingsString})</h1>
         </div>
         <div className='flex justify-between items-center pb-3'>
           <h1 className='ml-4 mt-3'>
@@ -100,8 +101,9 @@ function RestaurantDetail() {
           <ItemList
             key={list?.card?.card?.title}
             options={list?.card?.card}
-            showItems={index === showIndex ? true : false}
+            showItems={enable == true && index === showIndex ? true : false}
             SetShowIndex={() => SetShowIndex(index)}
+            setEnable={() => setEnable(!enable)}
           />
         )}
       </div>

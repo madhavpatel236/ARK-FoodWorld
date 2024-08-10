@@ -12,6 +12,7 @@ import java from '../img/java.webp'
 import git from '../img/git.png'
 import react from '../img/react.png'
 import appwrite from '../img/appwrite.png'
+import AboutShimmer from './Shimmer/AboutShimmer'
 
 
 function About() {
@@ -29,7 +30,7 @@ function About() {
     setProfilePhoto(json?.avatar_url)
     setData(json)
   }
-  return (
+  return profilePhoto == null ? <AboutShimmer /> : (
     <div className="flex flex-col justify-center  items-center bg-about-bg bg-cover h-auto w-full bg-gray-200  ">
       <div className=' flex w-9/12 pt-56 pb-20 justify-between items-center  bg-opacity-100 rounded-xl  '>
         <img src={madhav} className='rounded-2xl w-80 h-96 mr-4 p-4 border-transparent  border-4 bg-transparent  shadow-lg shadow-black transform duration-300 hover:scale-105  ' />  {/* shadow-2xl  shadow-red-400  cursor-pointer transform hover:scale-105 duration-300 hover:shadow-current  */}
@@ -53,12 +54,3 @@ function About() {
 }
 
 export default About
-
-
-{/* <div>{data?.location}</div> */}
-{/* <div className='flex w-2/12 justify-between ' >
-<img src={github} alt='github' className='w-7 h-7  border border-white' />
-<img src={linkdin} alt='linkdin' className='w-7 h-7  border border-white' />
-<img src={x} alt='x' className='h-8  border border-white' />
-<img src={insta} alt='insta' className='w-7 h-7  border border-white' />
-</div> */}
