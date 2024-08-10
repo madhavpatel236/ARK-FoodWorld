@@ -6,8 +6,6 @@ import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } 
 import {About, Home, RestaurantDetail } from './components'
 import Cart from './components/Cart/Cart'
 
-// implement lazy loding also
-
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<Root />}>
