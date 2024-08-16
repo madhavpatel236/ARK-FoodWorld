@@ -37,7 +37,7 @@ For an optimal experience, please access the website in desktop view, as it is c
 
 ## Installation
 
-### Clone the repository
+#### Clone the repository
 
 ```
 git clone https://github.com/madhavpatel236/ARK-FoodWorld.git
@@ -45,14 +45,14 @@ cd ARK-FoodWorld
 LOCALHOST= http://localhost:5173/
 ```
 
-### Install dependencies
+#### Install dependencies
 
 ```
 cd ARK-FoodWorld
 npm install
 ```
 
-### Start the project
+#### Start the project
 
 ```
 npm run dev
