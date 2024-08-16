@@ -70,3 +70,5 @@ npm run dev
 ![SS5](./src/img/ScreenShots/five.png)
 #
 ![SS6](./src/img/ScreenShots/six.png)
+
+`Because of the CORS Problem site is not deployed `
