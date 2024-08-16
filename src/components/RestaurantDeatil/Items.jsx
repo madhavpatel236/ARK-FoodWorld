@@ -27,7 +27,7 @@ function Items({ data }) {
                         </div>
                         <div className='flex-col h-auto '>
                             <p className='pb-2 ine-clamp-3 '> {d?.card?.info?.description} </p>
-                            {d?.card?.info?.ratings.aggregatedRating.rating && <p className='ine-clamp-3 text-blue-600 '>*️⃣{d?.card?.info?.ratings.aggregatedRating.rating + " " + "(" + (d?.card?.info?.ratings.aggregatedRating.ratingCount) + ")"} </p>}
+                            {d?.card?.info?.ratings.aggregatedRating.rating && <p className='ine-clamp-3 text-blue-600 '>✰ {d?.card?.info?.ratings.aggregatedRating.rating + " " + "(" + (d?.card?.info?.ratings.aggregatedRating.ratingCount) + ")"} </p>}
                         </div>
                         <button
                             className='p-3 mt-4 flex justify-center bg-black text-white rounded-lg '

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Items from './Items'
+import down from '../../img/down.png'
 
 function ItemList({ options, showItems, SetShowIndex, setEnable }) {
 
@@ -21,7 +22,7 @@ function ItemList({ options, showItems, SetShowIndex, setEnable }) {
                     }}
                 >
                     <span> {options?.title} ({options?.itemCards?.length}) </span>
-                    <button> ⬇️ </button>
+                    <button> <img className='w-7 h-7' src={down} alt='down arrow ' /> </button>
                 </div>
 
                 {/* Accordian Body */}

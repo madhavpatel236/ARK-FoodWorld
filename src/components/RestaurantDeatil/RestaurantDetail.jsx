@@ -71,7 +71,7 @@ function RestaurantDetail() {
             <h1 className='flex ml-5 font-normal  '> {restaurantDetails[2]?.card?.card?.info?.cuisines.join(", ")}  </h1>
             <h1 className='flex ml-5 font-normal  '> {restaurantDetails[2]?.card?.card?.info?.areaName + ", " + restaurantDetails[2]?.card?.card?.info?.city}  </h1>
           </div>
-          <h1 className='flex mt-4 ml-5 text-xl '>*️⃣ {restaurantDetails[2]?.card?.card?.info?.avgRating} ({restaurantDetails[2]?.card?.card?.info?.totalRatingsString})</h1>
+          <h1 className='flex mt-4 ml-5 text-xl '> ✰ {restaurantDetails[2]?.card?.card?.info?.avgRating} ({restaurantDetails[2]?.card?.card?.info?.totalRatingsString})</h1>
         </div>
         <div className='flex justify-between items-center pb-3'>
           <h1 className='ml-4 mt-3'>

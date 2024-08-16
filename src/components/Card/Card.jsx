@@ -1,7 +1,8 @@
 import React from 'react'
-import logo from '../../img/logo.jpeg'
+import logo from '../../img/logo.png'
 import { CDN_URL } from '../../utils/constance'
 import { Link } from 'react-router-dom'
+// import star from '../../img/star.png'
 
 function Card({ resData }) {
     // console.log('resData' , resData)
@@ -16,7 +17,7 @@ function Card({ resData }) {
                 {/* <h4 className='flex flex-wrap'>🔍 {resData.cuisines.join(', ')}</h4> */}
                 <h4 className='flex text-gray-700 font-medium ine-clamp-1'>{resData.areaName}</h4> <br />
                 <h4 className='flex ine-clamp-1 text-gray-700 font-medium font-RobotoSlab '> {resData.costForTwo}</h4>
-                <h4 className='flex ine-clamp-1  text-gray-700 font-medium font-RobotoSlab  justify-between'> ⭐{resData.avgRating}
+                <h4 className='flex ine-clamp-1  text-gray-700 font-medium font-RobotoSlab  justify-between'> ✰ {resData.avgRating}
                     {/* <div className='flex ine-clamp-1 '>  ⌛{resData.sla.slaString}</div> */}
                 </h4>
             </div>
