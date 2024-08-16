@@ -60,9 +60,13 @@ npm run dev
 ## ScreenShots of the Project
 
 ![SS1](./src/img/ScreenShots/one.png)
-##
+#
 ![SS2](./src/img/ScreenShots/two.png)
+#
 ![SS3](./src/img/ScreenShots/three.png)
+#
 ![SS4](./src/img/ScreenShots/four.png)
+#
 ![SS5](./src/img/ScreenShots/five.png)
+#
 ![SS6](./src/img/ScreenShots/six.png)
