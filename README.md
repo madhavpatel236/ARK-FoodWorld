@@ -11,18 +11,18 @@ ARK FoodWorld is a food ordering app built from scratch using the Swiggy API, de
 
 ## Concepts Covered
 
-- API Integration: Fetching real-time data from the Swiggy API and other external APIs.
-- Data Filtering: Implementing complex data filtering techniques from API responses.
-- DOM Manipulation: Mastering DOM updates and reconciliation in React.
-- Shimmer UI: Creating a skeleton screen using Shimmer UI for improved user experience      during data loading.
-- Props Drilling: Understanding and managing data flow through component hierarchies.
-- React Router: Implementing client-side routing with static, dynamic, and nested routes.
-- Higher-Order Components (HOC): Enhancing components with HOCs for code reuse.
-- Controlled and Uncontrolled Components: Managing form state effectively, with state lifting as needed.
-- Context API: Using Context API to manage global state without prop drilling.
-- Lazy Loading & Suspense: Optimizing performance with code-splitting and lazy loading components.
-- Debouncing: Implementing debouncing for performance optimization during high-frequency events.
-- Caching: Enhancing data fetching efficiency with caching strategies.
+- **API Integration** : Fetching real-time data from the Swiggy API and other external APIs.
+- **Data Filtering**: Implementing complex data filtering techniques from API responses.
+- **DOM Manipulation**: Mastering DOM updates and reconciliation in React.
+- **Shimmer UI**: Creating a skeleton screen using Shimmer UI for improved user experience      during data loading.
+- **Props Drilling**: Understanding and managing data flow through component hierarchies.
+- **React Router**: Implementing client-side routing with static, dynamic, and nested routes.
+- **Higher-Order Components (HOC)**: Enhancing components with HOCs for code reuse.
+- **Controlled and Uncontrolled Components**: Managing form state effectively, with state lifting as needed.
+- **Context API**: Using Context API to manage global state without prop drilling.
+- **Lazy Loading & Suspense**: Optimizing performance with code-splitting and lazy loading components.
+- **Debouncing**: Implementing debouncing for performance optimization during high-frequency events.
+- **Caching**: Enhancing data fetching efficiency with caching strategies.
 <!-- - Nested Comments: Building complex UIs with N-levels deep nested comments. -->
 
 
