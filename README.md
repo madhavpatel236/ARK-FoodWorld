@@ -42,8 +42,9 @@ For an optimal experience, please access the website in desktop view, as it is c
 ```
 git clone https://github.com/madhavpatel236/ARK-FoodWorld.git
 cd ARK-FoodWorld
-LOCALHOST= http://localhost:5173/
 ```
+
+`LOCALHOST= http://localhost:5173/`
 
 #### Install dependencies
 
