@@ -90,7 +90,7 @@ function Home() {
           }
         </div>
 
-        <h1 className={`mt-8 ml-20 mb-3 font-medium text-3xl font-Ubuntu`}>Restaurants with online food delivery in Jamnager</h1>
+        <h1 className={`mt-8 ml-20 mb-3 font-medium text-3xl font-Ubuntu`}>Restaurants with online food delivery in Pune</h1>
 
         <div className='flex flex-wrap justify-center' >
           {filteredRestaurant.map((restaurant) => (
