@@ -58,9 +58,7 @@ function RestaurantDetail() {
 
   // console.log('manuItems', manuItems)
 
-  return restaurantDetails.length === 0 ? (
-    <Shimmer />
-  ) : (
+  return (
     <div className='flex-col pt-32 ml-48  w-8/12 '>
 
       {/*  upper main restaurant card comonent */}
