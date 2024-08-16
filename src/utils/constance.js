@@ -7,8 +7,7 @@ export const CDN_URL =
 
 
   export const SWIGGY_REST_DETAILS_API =
-  "https://ark-food-world.vercel.app/api/proxy/swiggy/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=22.4833391&lng=70.05802659999999&restaurantId="
-  // "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=22.4833391&lng=70.05802659999999&restaurantId="
+  "https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=22.4833391&lng=70.05802659999999&restaurantId="
 
   // export const SWIGGY_SEARCH_API = // NEED to understand the variable concept in the API
   // `https://www.swiggy.com/dapi/restaurants/search/suggest?lat=22.30080&lng=73.20430&str=${search}&trackingId=undefined&includeIMItem=true`
