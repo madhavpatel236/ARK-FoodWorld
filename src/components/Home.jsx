@@ -3,6 +3,8 @@ import Card, { withOfferCard } from './Card/Card'
 import Shimmer from './Shimmer/Shimmer'
 import { SWIGGY_HOME_API } from '../utils/constance'
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { cacheResults } from '../utils/Slices/cacheSlice'
 
 function Home() {
   const [listOfRestaurant, setlistOfRestaurant] = useState([]);
@@ -10,12 +12,36 @@ function Home() {
   const [searchText, setSearchText] = useState("");
   const [searchedRest, setSearchedRest] = useState([])
 
+  const dispatch = useDispatch()
+
+  const searchCache = useSelector((store) => store.cache)
+
+
   const ResaurentCardWithOffer = withOfferCard(Card) // Higher order component
 
   useEffect(() => {
     fetchData();
   }, []);
 
+  // for the searchbox
+  useEffect(() => {
+
+    const debounsing = setTimeout(() => {
+
+      // apply the cache system
+      if (searchCache[searchText]) {
+        setSearchedRest(searchCache[searchText])
+      }else{
+        searchRecomendation();
+      }
+    }, 200);
+
+    return () => {
+      clearTimeout(debounsing)
+    }
+  }, [searchText])
+
+  // API Call for the home page Restaurtent card
   const fetchData = async () => {
     const data = await fetch(SWIGGY_HOME_API);
     const json = await data.json();
@@ -32,20 +58,26 @@ function Home() {
     setFilteredRestaurant(rest)
   }
 
+  // API call for the suggesions in the search 
   const searchRecomendation = async () => {
-    console.log(searchText)
     const data = await fetch(`https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/restaurants/search/suggest?lat=22.4833391&lng=70.05802659999999&str=${searchText}&trackingId=undefined&includeIMItem=true`)
     const json = await data.json()
     const searchedRes = await json?.data?.suggestions;
-    setSearchedRest(searchedRes)
-    // console.log('json', json)
+    // console.log(searchedRes)
+
+    const mapedRes = searchedRes && searchedRes.map((data) => {
+      return data.text
+    })
+
+    setSearchedRest(mapedRes)
+
+    // Here we dispatch the search text as well as suggesition in the store slice 
+    dispatch(
+      cacheResults({
+        [searchText]: mapedRes
+      })
+    )
   }
-
-  useEffect(() => {
-    searchRecomendation()
-  }, [searchText])
-
-  console.log('searchedRest', searchedRest)
 
 
   return listOfRestaurant.length === 0 ? <Shimmer />
