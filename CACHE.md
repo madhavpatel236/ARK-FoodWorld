@@ -1,4 +1,4 @@
-# Cache
+# Cache & Debouncing
 
 - In the Cache we will store the data of the user serch and if user another time search the same things then we cannnot call the API instand we will directly show the result from the catch
 
